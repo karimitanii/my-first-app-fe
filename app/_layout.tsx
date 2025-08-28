@@ -1,29 +1,52 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect, useState } from "react";
+import { View, Image } from "react-native";
+import AppThemeProvider from "@/hooks/useAppTheme"; // default import
+import { Palette } from "@/constants/colors";
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+SplashScreen.preventAutoHideAsync().catch(() => {});
+
+// Simple overlay so WEB also shows a splash
+function SplashOverlay() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: Palette.bg,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Image
+        source={require("@/assets/Scalovate_Logo_Black.png")}
+        style={{
+          width: 220,
+          height: 80,
+          resizeMode: "contain",
+          tintColor: "#fff",
+        }}
+      />
+    </View>
+  );
+}
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+  const [booting, setBooting] = useState(true);
 
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
+  useEffect(() => {
+    const t = setTimeout(() => {
+      setBooting(false);
+      SplashScreen.hideAsync().catch(() => {});
+    }, 2200); // longer splash duration
+    return () => clearTimeout(t);
+  }, []);
+
+  if (booting) return <SplashOverlay />;
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <AppThemeProvider>
+      <Stack screenOptions={{ headerShown: false, animation: "fade" }} />
+    </AppThemeProvider>
   );
 }

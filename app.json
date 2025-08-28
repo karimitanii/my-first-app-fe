@@ -1,40 +1,47 @@
 {
   "expo": {
-    "name": "my-first-app-fe",
-    "slug": "my-first-app-fe",
+    "name": "Scalovate",
+    "slug": "scalovate",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myfirstappfe",
-    "userInterfaceStyle": "automatic",
+    "scheme": "scalovate",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
+    "assetBundlePatterns": ["**/*"],
+
+    "icon": "./assets/Scalovate_Logo_Black.png",
+
     "ios": {
       "supportsTablet": true
     },
+
     "android": {
+      "edgeToEdgeEnabled": true,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true
+        "foregroundImage": "./assets/Scalovate_Logo_Black.png",
+        "backgroundColor": "#0B0B0C"
+      }
     },
+
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/Scalovate_Logo_Black.png"
     },
+
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/Scalovate_Logo_Black.png",
+          "imageWidth": 220,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#0B0B0C"
         }
       ]
     ],
+
     "experiments": {
       "typedRoutes": true
     }
