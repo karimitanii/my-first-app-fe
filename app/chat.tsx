@@ -11,8 +11,8 @@ import {
   Platform,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { Palette, ThemeColors } from "@/constants/colors";
-import { useAppTheme } from "@/hooks/useAppTheme";
+import { Palette, ThemeColors } from "../constants/colors";
+import { useAppTheme } from "../hooks/useAppTheme";
 
 function MenuSheet({
   visible,
@@ -66,7 +66,7 @@ function MenuSheet({
         ]}
       >
         <Image
-          source={require("@/assets/journiq_red.png")}
+          source={require("../assets/journiq_red.png")}
           style={{
             width: 120,
             resizeMode: "contain",
@@ -232,7 +232,7 @@ export default function Chat() {
       {/* Top bar */}
       <View style={[styles.topbar, { borderColor: theme.border }]}>
         <Image
-          source={require("@/assets/journiq_red.png")}
+          source={require("../assets/journiq_red.png")}
           style={{
             width: 110,
             height: 28,
@@ -253,7 +253,7 @@ export default function Chat() {
 
       {/* Watermark */}
       <Image
-        source={require("@/assets/journiq_red.png")}
+        source={require("../assets/journiq_red.png")}
         style={{
           position: "absolute",
           alignSelf: "center",

@@ -2,8 +2,8 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useState } from "react";
 import { View, Image } from "react-native";
-import AppThemeProvider from "@/hooks/useAppTheme"; // default import
-import { Palette } from "@/constants/colors";
+import AppThemeProvider from "../hooks/useAppTheme"; // default import
+import { Palette } from "../constants/colors";
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -19,7 +19,7 @@ function SplashOverlay() {
       }}
     >
       <Image
-        source={require("@/assets/Scalovate_Logo_Black.png")}
+        source={require("../assets/Scalovate_Logo_Black.png")}
         style={{
           width: 220,
           height: 80,
