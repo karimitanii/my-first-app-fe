@@ -6,7 +6,7 @@ import AppThemeProvider from "../hooks/useAppTheme"; // default import
 import { Palette } from "../constants/colors";
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
-
+//letsgo
 // Simple overlay so WEB also shows a splash
 function SplashOverlay() {
   return (
